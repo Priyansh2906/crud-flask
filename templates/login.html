@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>
+    To-Do-List
+</title>
+{% endblock %}
+
+{% block body %}
+<center>
+<h1>Task-Master-Login</h1>
+
+<br><br>
+<h2><u>LOGIN : </u></h2>
+<br><br>
+<form action='/login' method="POST">
+    Username : <input type="text" id="user" name="user" ><br><br>
+    Password : <input type="test" id="pass" name="pass"><br><br>
+    <input type="submit" value="Login!">
+</form>
+{% endblock %}

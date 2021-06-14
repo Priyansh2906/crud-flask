@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>
+    To-Do-List
+</title>
+{% endblock %}
+
+{% block body %}
+<center>
+<h1>Task-Master-Login</h1>
+
+<br><br>
+<h2><u>Logging you out!!</u></h2>
+<br><br>
+<script>
+    function myFunction() {
+    location.replace("/")
+    }
+ 
+    setTimeout(function(){ myFunction(); }, 3000);
+ </script>
+{% endblock %}

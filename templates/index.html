@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>
+    To-Do-List
+</title>
+<style>
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
+  }
+td{
+    padding : 5px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<center>
+<h1>Task-Master</h1>
+<br><br>
+{% if "user" not in session %}
+<a href="/login">Login</a><br><br>
+{% else %}
+<a href="/logout">Logout</a><br><br>
+{% endif %}  
+<table cellpadding="5px" cellspacing="8px">
+        <th>Task</th>
+        <th>Added</th>
+        <th>Action</th>
+    {% for i in tasks %}
+        <tr>
+            <td>{{ i.content }}</td>
+            <td>{{ i.date_created.date() }}</td>
+            <td>
+                <a href="/update/{{ i.id }}">Update</a>
+                <br>
+                <a href="/delete/{{ i.id }}">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<br><br>
+<h2><u>Add a task!!!</u></h2>
+<br><br>
+<form action='/' method="POST">
+    <input type="text" id="content" name="content"><br><br>
+    <input type="submit" value="Add Task">
+</form>
+{% endblock %}
